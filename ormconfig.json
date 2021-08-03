@@ -1,0 +1,18 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "db-2",
+  "entities": [
+     "./src/models/*.ts"
+  ],
+  "migrations": [
+     "./src/database/migrations/*.ts"
+  ],
+"cli":{
+  "entitiesDir": "s./src/models/*",
+  "migrationsDir":"./src/database/migrations/"
+  }
+}
