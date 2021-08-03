@@ -8,6 +8,7 @@ interface TokenPayLoad{
 }
 
 export default function autMiddleware(
+
   request: Request, reponse:Response, next:NextFunction,
 ) {
   const { authorization } = request.headers;
@@ -23,6 +24,7 @@ export default function autMiddleware(
     const data = jwt.verify(token, 'secret');
     const { id } = data as TokenPayLoad;
     request.userID = id;
+    return next();
   } catch {
     return reponse.status(401).json({
       messagem: 'Não Autorizado!',
