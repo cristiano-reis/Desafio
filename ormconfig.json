@@ -12,7 +12,7 @@
      "./src/database/migrations/*.ts"
   ],
 "cli":{
-  "entitiesDir": "s./src/models/*",
+  "entitiesDir": "./src/models/*",
   "migrationsDir":"./src/database/migrations/"
   }
 }

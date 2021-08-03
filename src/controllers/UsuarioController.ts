@@ -6,7 +6,7 @@ import { getRepository } from 'typeorm';
 
 class UsuarioController {
   index(request: Request, response:Response) {
-    return response.send('Index');
+    return response.send({ userID: request.userID });
   }
 
   async createUsuario(request: Request, response:Response) {

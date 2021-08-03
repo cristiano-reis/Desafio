@@ -25,7 +25,7 @@ class AutController {
       });
     }
     delete usuario.senha;
-    const token = jwt.sign({ id: usuario.id }, 'secret', { expiresIn: '30m' });
+    const token = jwt.sign({ id: usuario.id }, 'secret', { expiresIn: '1d' });
 
     return response.json({ usuario, token });
   }

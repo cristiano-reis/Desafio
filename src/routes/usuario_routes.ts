@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import autMiddleware from 'src/autMiddleware/autMiddleware';
+
 import UsuarioController from '@controllers/UsuarioController';
 import AutController from '@controllers/AutController';
+import autMiddleware from '@autMiddleware/autMiddleware';
 
 const usuarioRouter = Router();
 

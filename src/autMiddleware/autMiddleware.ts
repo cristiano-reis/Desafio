@@ -13,7 +13,7 @@ export default function autMiddleware(
 ) {
   const { authorization } = request.headers;
 
-  if (authorization) {
+  if (!authorization) {
     return reponse.status(401).json({
       messagem: 'Não Autorizado!',
     });
@@ -22,6 +22,7 @@ export default function autMiddleware(
 
   try {
     const data = jwt.verify(token, 'secret');
+
     const { id } = data as TokenPayLoad;
     request.userID = id;
     return next();
