@@ -1,6 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
+interface TokenPayLoad{
+  id: string;
+  iat: number;
+  exp:number;
+}
+
 export default function autMiddleware(
   request: Request, reponse:Response, next:NextFunction,
 ) {
@@ -15,7 +21,8 @@ export default function autMiddleware(
 
   try {
     const data = jwt.verify(token, 'secret');
-    console.log(data);
+    const { id } = data as TokenPayLoad;
+    request.userID = id;
   } catch {
     return reponse.status(401).json({
       messagem: 'Não Autorizado!',
