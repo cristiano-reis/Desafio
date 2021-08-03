@@ -5,6 +5,10 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
+  index(request: Request, response:Response) {
+    return response.send('Index');
+  }
+
   async createUsuario(request: Request, response:Response) {
     const repository = getRepository(Usuario);
     const { nome, email, senha } = request.body;
@@ -25,7 +29,7 @@ class UsuarioController {
     });
 
     const usuario = await repository.save(repo);
-
+    delete usuario.senha;
     return response.json(usuario);
   }
 }

@@ -16,6 +16,4 @@ export default class Contato {
 
  @ManyToOne(() => Usuario, (usuario) => usuario.contatos)
  usuario:Usuario
-  // @ManyToOne(type => Usuario, contatos => Contato,{eager:true})
-  // usuario:Usuario
 }
