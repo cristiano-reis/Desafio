@@ -1,8 +1,8 @@
 import {
   Column, Entity, PrimaryGeneratedColumn, CreateDateColumn,
-  UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany,
+  UpdateDateColumn, OneToMany,
 } from 'typeorm';
-import bcrypt from 'bcryptjs';
+
 import Contato from './Contato';
 
 @Entity('usuarios')
@@ -16,11 +16,11 @@ class Usuario {
   @Column()
   senha:string
 
-  @BeforeInsert()
-  @BeforeUpdate()
-  hashPassword() {
-    this.senha = bcrypt.hashSync(this.senha, 8);
-  }
+  // @BeforeInsert()
+  // @BeforeUpdate()
+  // hashPassword() {
+  //   this.senha = bcrypt.hashSync(this.senha, 8);
+  // }
 
   @Column()
   email:string

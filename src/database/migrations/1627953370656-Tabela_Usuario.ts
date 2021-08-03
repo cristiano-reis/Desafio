@@ -42,7 +42,7 @@ export default class CreateUser1627520864036 implements MigrationInterface {
           {
             name: 'ultimo_login',
             type: 'timestamp',
-            isNullable: true,
+            default: 'now()',
           },
         ],
       }),
