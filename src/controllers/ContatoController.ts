@@ -1,7 +1,5 @@
 import Contato from '@models/Contato';
-
 import { Request, Response } from 'express';
-
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
