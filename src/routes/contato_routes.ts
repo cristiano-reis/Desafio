@@ -3,6 +3,6 @@ import { Router } from 'express';
 
 const contatoRouter = Router();
 
-contatoRouter.post('/:id', ContatoController.criarContato);
+contatoRouter.post('/', ContatoController.cadastrarContato);
 contatoRouter.get('/', ContatoController.listarContatos);
 export default contatoRouter;

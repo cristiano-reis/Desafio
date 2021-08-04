@@ -9,7 +9,7 @@ class UsuarioController {
     return response.send({ userID: request.userID });
   }
 
-  async createUsuario(request: Request, response:Response) {
+  async cadastrarUsuario(request: Request, response:Response) {
     const repository = getRepository(Usuario);
     const { nome, email, senha } = request.body;
 

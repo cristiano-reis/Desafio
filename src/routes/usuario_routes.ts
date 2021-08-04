@@ -6,7 +6,7 @@ import autMiddleware from '@autMiddleware/autMiddleware';
 
 const usuarioRouter = Router();
 
-usuarioRouter.post('/', UsuarioController.createUsuario);
+usuarioRouter.post('/', UsuarioController.cadastrarUsuario);
 usuarioRouter.get('/', autMiddleware, UsuarioController.index);
 usuarioRouter.post('/aut', AutController.Autenticacao);
 // usuarioRouter.get('/', async (request, response) => {

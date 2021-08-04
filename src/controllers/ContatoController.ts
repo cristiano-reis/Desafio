@@ -5,18 +5,10 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
-  async criarContato(request: Request, response:Response) {
+  async cadastrarContato(request: Request, response:Response) {
     const repo = getRepository(Contato);
-    const { id } = request.params;
-
-    // const contatoExiste = repo.findOne();
-
-    const { numero, ddd } = request.body;
-    const createRepo = repo.create({
-      numero,
-      ddd,
-      id,
-    });
+    const contato = request.body;
+    const createRepo = repo.create(contato);
     const res = await repo.save(createRepo);
     return response.status(201).json(res);
   }
