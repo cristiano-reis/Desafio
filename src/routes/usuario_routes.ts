@@ -7,16 +7,9 @@ import autMiddleware from '@autMiddleware/autMiddleware';
 const usuarioRouter = Router();
 
 usuarioRouter.post('/', UsuarioController.cadastrarUsuario);
-usuarioRouter.get('/', autMiddleware, UsuarioController.index);
+usuarioRouter.get('/list', autMiddleware, UsuarioController.listar);
 usuarioRouter.post('/aut', AutController.Autenticacao);
-// usuarioRouter.get('/', async (request, response) => {
-//   const res = response.json(await getRepository(Usuario).find({
-//     select: ['nome', 'email', 'senha'],
-//     relations: ['contatos'],
-
-//   }));
-
-//   return res;
-// });
+usuarioRouter.get('/', UsuarioController.buscarUsuarios);
+usuarioRouter.get('/:id', UsuarioController.buscarContatoPorUsuario);
 
 export default usuarioRouter;

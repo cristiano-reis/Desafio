@@ -5,8 +5,29 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
-  index(request: Request, response:Response) {
+  listar(request: Request, response:Response) {
     return response.send({ userID: request.userID });
+  }
+
+  async buscarContatoPorUsuario(request: Request, response:Response) {
+    const { id } = request.params;
+    const res = await getRepository(Usuario).find({
+      select: ['nome', 'email', 'senha'],
+      relations: ['contatos'],
+      where: { id },
+    });
+    const existeUsuairo = await getRepository(Usuario).findOne({ id });
+    if (!existeUsuairo) {
+      return response.status(409).json({
+        mensagem: 'Usuario não encontrado!',
+      });
+    }
+    return response.json(res);
+  }
+
+  async buscarUsuarios(request: Request, response:Response) {
+    const usuarios = await getRepository(Usuario).find();
+    return response.json(usuarios);
   }
 
   async cadastrarUsuario(request: Request, response:Response) {
