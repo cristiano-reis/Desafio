@@ -25,8 +25,8 @@ class Usuario {
   @Column()
   email:string
 
-  @OneToMany(() => Contato, (contato) => contato.usuario)
-  contatos: Contato[];
+ @OneToMany(() => Contato, (contato) => contato.usuario)
+ contatos: Contato[];
 
   @CreateDateColumn({ name: 'data_criacao' })
   data_criacao: Date

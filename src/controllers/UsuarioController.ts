@@ -1,8 +1,8 @@
 import Usuario from '@models/Usuario';
 import { hash } from 'bcryptjs';
 import { Request, Response } from 'express';
-
-import { getRepository } from 'typeorm';
+import UsuarioRepository from 'src/repository/UsuarioRepository';
+import { getCustomRepository, getRepository } from 'typeorm';
 
 class UsuarioController {
   listarID(request: Request, response:Response) {
@@ -11,18 +11,18 @@ class UsuarioController {
 
   async buscarContatoPorUsuario(request: Request, response:Response):Promise<Usuario | any> {
     const { id } = request.params;
-    const res = await getRepository(Usuario).find({
+    const existeUsuario = await getRepository(Usuario).find({
       select: ['nome', 'email', 'senha'],
       relations: ['contatos'],
       where: { id },
     });
-    const existeUsuario = await getRepository(Usuario).findOne({ id });
+
     if (!existeUsuario) {
       return response.status(409).json({
         mensagem: 'Usuario não encontrado!',
       });
     }
-    return response.json(res);
+    return response.json(existeUsuario);
   }
 
   async buscarUsuarios(request: Request, response:Response) :Promise<Usuario | any> {
@@ -34,7 +34,7 @@ class UsuarioController {
     const repository = getRepository(Usuario);
     const { nome, email, senha } = request.body;
 
-    const usuarioExiste = await repository.findOne({ email });
+    const usuarioExiste = await getCustomRepository(UsuarioRepository).BuscarPorEmail(email);
 
     if (usuarioExiste) {
       return response.status(409).json({

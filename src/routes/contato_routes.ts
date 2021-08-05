@@ -5,7 +5,7 @@ import { Router } from 'express';
 const contatoRouter = Router();
 
 contatoRouter.use(sessaoMiddleware);
-contatoRouter.get('/', ContatoController.BuscarTodosContatos);
+contatoRouter.get('/', ContatoController.buscarTodosContatos);
 contatoRouter.post('/', ContatoController.cadastar);
 
 export default contatoRouter;

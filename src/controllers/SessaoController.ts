@@ -1,15 +1,14 @@
-import Usuario from '@models/Usuario';
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import UsuarioRepository from 'src/repository/UsuarioRepository';
 
 class SessaoController {
   async Autenticacao(request: Request, response:Response) :Promise<Response> {
-    const repository = getRepository(Usuario);
     const { email, senha } = request.body;
 
-    const usuario = await repository.findOne({ email });
+    const usuario = await getCustomRepository(UsuarioRepository).BuscarPorEmail(email);
 
     if (!usuario) {
       return response.status(401).json({
