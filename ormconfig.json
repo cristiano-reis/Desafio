@@ -4,7 +4,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "db-5",
+  "database": "db-6",
   "entities": [
      "./src/models/*.ts"
   ],

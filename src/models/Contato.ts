@@ -14,6 +14,9 @@ export default class Contato {
   @Column()
   ddd:string;
 
- @ManyToOne(() => Usuario, (usuario) => usuario.contatos)
- usuario:Usuario
+  @Column()
+  usuario_id:string;
+
+  // @ManyToOne(() => Usuario, (usuario) => usuario.contatos)
+  // usuario:Usuario
 }
