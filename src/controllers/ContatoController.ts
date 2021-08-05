@@ -1,18 +1,44 @@
 import Contato from '@models/Contato';
+import Usuario from '@models/Usuario';
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
-  async cadastrarContato(request: Request, response:Response) {
-    const repo = getRepository(Contato);
-    const contato = request.body;
-    const createRepo = repo.create(contato);
-    const res = await repo.save(createRepo);
-    return response.status(201).json(res);
+  async BuscarTodosContatos(request: Request, response:Response) :Promise<Contato[] | any> {
+    const usuarios = await getRepository(Contato).find({ relations: ['usuario'] });
+    response.json(usuarios);
   }
 
-  async listarContatos(request: Request, response:Response) {
-    response.json(await getRepository(Contato).find({ relations: ['usuario'] }));
+  async cadastar(request : Request, response:Response)
+   :Promise<Contato | any> {
+    const { numero, ddd, id } = request.body;
+    const existeUsuario = await getRepository(Usuario).findOne({ id });
+
+    if (!existeUsuario) {
+      return response.status(409).json({
+        mensagem: 'Usuario não encontrado!',
+      });
+    }
+
+    const existeNumero = await getRepository(Contato).findOne({ numero, ddd });
+
+    if (existeNumero) {
+      return response.status(409).json({
+        mensagem: 'Número já cadastrado',
+      });
+    }
+    const contato = getRepository(Contato).create({
+      numero,
+      ddd,
+      usuario_id: id,
+    });
+    const savecontato = await getRepository(Contato).save(contato);
+
+    return response.status(200).json(savecontato);
   }
+
+  // async atualizar(contato: Contato, response:Response) :Promise<Contato> {
+  //   return null;
+  // }
 }
 export default new UsuarioController();

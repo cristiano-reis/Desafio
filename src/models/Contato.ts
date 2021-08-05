@@ -1,5 +1,5 @@
 import {
-  Column, Entity, ManyToOne, PrimaryGeneratedColumn,
+  Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn,
 } from 'typeorm';
 import Usuario from './Usuario';
 
@@ -16,6 +16,10 @@ export default class Contato {
 
   @Column()
   usuario_id:string;
+
+  @ManyToOne(() => Usuario)
+  @JoinColumn({ name: 'usuario_id' })
+  usuario:string
 
   // @ManyToOne(() => Usuario, (usuario) => usuario.contatos)
   // usuario:Usuario

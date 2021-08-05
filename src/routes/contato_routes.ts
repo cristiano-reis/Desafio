@@ -1,8 +1,11 @@
 import ContatoController from '@controllers/ContatoController';
+import sessaoMiddleware from '@middleware/sessaoMiddleware';
 import { Router } from 'express';
 
 const contatoRouter = Router();
 
-contatoRouter.post('/', ContatoController.cadastrarContato);
-contatoRouter.get('/', ContatoController.listarContatos);
+contatoRouter.use(sessaoMiddleware);
+contatoRouter.get('/', ContatoController.BuscarTodosContatos);
+contatoRouter.post('/', ContatoController.cadastar);
+
 export default contatoRouter;

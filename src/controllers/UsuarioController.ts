@@ -5,19 +5,19 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 class UsuarioController {
-  listar(request: Request, response:Response) {
-    return response.send({ userID: request.userID });
+  listarID(request: Request, response:Response) {
+    return response.json({ userID: request.userID });
   }
 
-  async buscarContatoPorUsuario(request: Request, response:Response) {
+  async buscarContatoPorUsuario(request: Request, response:Response):Promise<Usuario | any> {
     const { id } = request.params;
     const res = await getRepository(Usuario).find({
       select: ['nome', 'email', 'senha'],
       relations: ['contatos'],
       where: { id },
     });
-    const existeUsuairo = await getRepository(Usuario).findOne({ id });
-    if (!existeUsuairo) {
+    const existeUsuario = await getRepository(Usuario).findOne({ id });
+    if (!existeUsuario) {
       return response.status(409).json({
         mensagem: 'Usuario não encontrado!',
       });
@@ -25,12 +25,12 @@ class UsuarioController {
     return response.json(res);
   }
 
-  async buscarUsuarios(request: Request, response:Response) {
+  async buscarUsuarios(request: Request, response:Response) :Promise<Usuario | any> {
     const usuarios = await getRepository(Usuario).find();
     return response.json(usuarios);
   }
 
-  async cadastrarUsuario(request: Request, response:Response) {
+  async cadastrarUsuario(request: Request, response:Response) :Promise<Usuario | any> {
     const repository = getRepository(Usuario);
     const { nome, email, senha } = request.body;
 

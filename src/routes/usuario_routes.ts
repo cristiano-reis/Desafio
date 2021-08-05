@@ -6,7 +6,7 @@ const usuarioRouter = Router();
 
 usuarioRouter.post('/', UsuarioController.cadastrarUsuario);
 usuarioRouter.use(sessaoMiddleware);
-usuarioRouter.get('/list', UsuarioController.listar);
+usuarioRouter.get('/list', UsuarioController.listarID);
 usuarioRouter.get('/', UsuarioController.buscarUsuarios);
 usuarioRouter.get('/:id', sessaoMiddleware, UsuarioController.buscarContatoPorUsuario);
 
