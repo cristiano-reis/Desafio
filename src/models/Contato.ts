@@ -3,7 +3,7 @@ import {
 } from 'typeorm';
 import Usuario from './Usuario';
 
-@Entity('contato')
+@Entity('contatos')
 export default class Contato {
   @PrimaryGeneratedColumn('uuid')
   id: string;

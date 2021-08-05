@@ -7,7 +7,7 @@ interface TokenPayLoad{
   exp:number;
 }
 
-export default function autMiddleware(
+export default function sessaoMiddleware(
 
   request: Request, reponse:Response, next:NextFunction,
 ) {
@@ -21,12 +21,23 @@ export default function autMiddleware(
   const token = authorization.replace('Bearer', '').trim();
 
   try {
-    const data = jwt.verify(token, 'secret');
+    const data = jwt.verify(token, process.env.APP_SECRET as string);
 
     const { id } = data as TokenPayLoad;
     request.userID = id;
     return next();
-  } catch {
+  } catch (err) {
+    if (err.message === 'invalid signature') {
+      return reponse.status(401).json({
+        messagem: 'Assinatura inválida',
+      });
+    }
+
+    if (err.message === 'jwt expired') {
+      return reponse.status(401).json({
+        messagem: 'Sessão inválida',
+      });
+    }
     return reponse.status(401).json({
       messagem: 'Não Autorizado!',
     });

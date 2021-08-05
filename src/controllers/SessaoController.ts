@@ -4,8 +4,8 @@ import { getRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-class AutController {
-  async Autenticacao(request: Request, response:Response) {
+class SessaoController {
+  async Autenticacao(request: Request, response:Response) :Promise<Response> {
     const repository = getRepository(Usuario);
     const { email, senha } = request.body;
 
@@ -25,9 +25,9 @@ class AutController {
       });
     }
     delete usuario.senha;
-    const token = jwt.sign({ id: usuario.id }, 'secret', { expiresIn: '1d' });
+    const token = jwt.sign({ id: usuario.id }, process.env.APP_SECRET as string, { expiresIn: '30m' });
 
     return response.json({ usuario, token });
   }
 }
-export default new AutController();
+export default new SessaoController();

@@ -78,7 +78,7 @@
       "@views/*": ["./src/views/*"],
       "@config/*": ["./src/config/*"],
       "@repository/*": ["./src/repositories/*"],
-      "@autMiddleware/*": ["./src/autMiddleware/*"]
+      "@middleware/*": ["./src/middleware/*"]
 
     }       /* Disallow inconsistently-cased references to the same file. */
   },

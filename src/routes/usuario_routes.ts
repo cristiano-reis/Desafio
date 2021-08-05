@@ -1,15 +1,13 @@
-import { Router } from 'express';
-
 import UsuarioController from '@controllers/UsuarioController';
-import AutController from '@controllers/AutController';
-import autMiddleware from '@autMiddleware/autMiddleware';
+import sessaoMiddleware from '@middleware/sessaoMiddleware';
+import { Router } from 'express';
 
 const usuarioRouter = Router();
 
 usuarioRouter.post('/', UsuarioController.cadastrarUsuario);
-usuarioRouter.get('/list', autMiddleware, UsuarioController.listar);
-usuarioRouter.post('/aut', AutController.Autenticacao);
+usuarioRouter.use(sessaoMiddleware);
+usuarioRouter.get('/list', UsuarioController.listar);
 usuarioRouter.get('/', UsuarioController.buscarUsuarios);
-usuarioRouter.get('/:id', UsuarioController.buscarContatoPorUsuario);
+usuarioRouter.get('/:id', sessaoMiddleware, UsuarioController.buscarContatoPorUsuario);
 
 export default usuarioRouter;
