@@ -5,7 +5,6 @@
   "author": "Cristiano<crisreis2@live.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify --files src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
