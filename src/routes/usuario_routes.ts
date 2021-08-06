@@ -1,6 +1,6 @@
-import UsuarioController from '@controllers/UsuarioController';
-import sessaoMiddleware from '@middleware/sessaoMiddleware';
 import { Router } from 'express';
+import UsuarioController from '../controllers/UsuarioController';
+import sessaoMiddleware from '../middleware/sessaoMiddleware';
 
 const usuarioRouter = Router();
 

@@ -71,16 +71,16 @@
     /* Advanced Options */
     "skipLibCheck": true,                           /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true ,
-    "baseUrl": ".",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"],
-      "@repository/*": ["./src/repositories/*"],
-      "@middleware/*": ["./src/middleware/*"]
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@controllers/*": ["./src/controllers/*"],
+    //   "@models/*": ["./src/models/*"],
+    //   "@views/*": ["./src/views/*"],
+    //   "@config/*": ["./src/config/*"],
+    //   "@repository/*": ["./src/repository/*"],
+    //   "@middleware/*": ["./src/middleware/*"]
 
-    }       /* Disallow inconsistently-cased references to the same file. */
+    // }       /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
     "src/**/*"

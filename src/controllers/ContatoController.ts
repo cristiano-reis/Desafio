@@ -1,8 +1,8 @@
-import Contato from '@models/Contato';
-
 import { Request, Response } from 'express';
-import UsuarioRepository from 'src/repository/UsuarioRepository';
+
 import { getCustomRepository, getRepository } from 'typeorm';
+import Contato from '../models/Contato';
+import UsuarioRepository from '../repository/UsuarioRepository';
 
 class UsuarioController {
   async buscarTodosContatos(request: Request, response:Response) :Promise<Contato[] | any> {

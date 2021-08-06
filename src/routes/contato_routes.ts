@@ -1,6 +1,6 @@
-import ContatoController from '@controllers/ContatoController';
-import sessaoMiddleware from '@middleware/sessaoMiddleware';
 import { Router } from 'express';
+import ContatoController from '../controllers/ContatoController';
+import sessaoMiddleware from '../middleware/sessaoMiddleware';
 
 const contatoRouter = Router();
 

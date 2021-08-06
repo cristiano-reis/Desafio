@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import UsuarioRepository from 'src/repository/UsuarioRepository';
+import UsuarioRepository from '../repository/UsuarioRepository';
 
 class SessaoController {
   async Autenticacao(request: Request, response:Response) :Promise<Response> {

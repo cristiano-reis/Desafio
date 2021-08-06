@@ -1,8 +1,9 @@
-import Usuario from '@models/Usuario';
 import { hash } from 'bcryptjs';
 import { Request, Response } from 'express';
-import UsuarioRepository from 'src/repository/UsuarioRepository';
+
 import { getCustomRepository, getRepository } from 'typeorm';
+import Usuario from '../models/Usuario';
+import UsuarioRepository from '../repository/UsuarioRepository';
 
 class UsuarioController {
   listarID(request: Request, response:Response) {
