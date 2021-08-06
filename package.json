@@ -11,11 +11,6 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
-    "@babel/node": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-typescript": "^7.10.1",
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.6",
     "@types/jest": "^26.0.0",
