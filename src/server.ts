@@ -1,5 +1,5 @@
-import 'reflect-metadata';
 import './config/env';
+import 'reflect-metadata';
 import express from 'express';
 import './database';
 
