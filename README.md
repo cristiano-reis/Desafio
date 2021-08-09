@@ -33,10 +33,13 @@ http://localhost:3333
 ```
 ## Uso do Insomnia
 - O arquivo de importação se encontra da pasta insomnia na raiz do projeto
-# Rotas
+## Rotas
 - post:.../usuario => {nome, email senha} cadastro (Insomnia - Cadastrar Usuário)
-- post:.../sessao  =>{email, senha} autenticação JWT do usuário com duração de 30 min (Insomnia - Sessão)
-- get: .../usuario => buscar usuarios cadastrados (Insomnia - Cadastrar Usuário)
-- get: .../usuario/:id => busca o usuário por id  
+- post:.../sessao  => {email, senha} autenticação JWT do usuário com duração de 30 min (Insomnia - Sessão)
+- get: .../usuario => buscar usuarios cadastrados autenticada somente pelo JWT (Insomnia - Listar Usuários)
+- get: .../usuario/:id => busca o usuário por id autenticada somente pelo JWT  (Insomnia - Buscar Contato Por Usuário)
+- get: .../index => simulando uma pagina index autenticada somente pelo JWT e recuperando somente o id do usuário. (Insomnia -Simulando usuário na  Pag. Index por(token))
+- post: .../contato => {numero, ddd ,id} => cadastro de contato com autenticação JWT , numero do telefone , ddd e id do usuário (Insomnia - Cadastrar Contato)
+- get: .../contato => buscar todos contaos cadastrado por cliente com autenticação JWT (Insomnia - Listar Contatos)
 ## API Restful hospedada Heroku 
 [desafio](https://desafio-backend2021.herokuapp.com).
