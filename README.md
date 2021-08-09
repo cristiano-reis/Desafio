@@ -30,4 +30,4 @@ yarn typeorm migration:run
 - O arquivo de importação se encontra da pasta insomnia na raiz do projeto
 
 ## API Restful hospedada Heroku 
-[desafio](https://desafio-2021.herokuapp.com/).
+[desafio](https://desafio-backend2021.herokuapp.com).
