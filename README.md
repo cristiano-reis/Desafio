@@ -33,6 +33,10 @@ http://localhost:3333
 ```
 ## Uso do Insomnia
 - O arquivo de importação se encontra da pasta insomnia na raiz do projeto
-
+# Rotas
+- post:.../usuario => {nome, email senha} cadastro (Insomnia - Cadastrar Usuário)
+- post:.../sessao  =>{email, senha} autenticação JWT do usuário com duração de 30 min (Insomnia - Sessão)
+- get: .../usuario => buscar usuarios cadastrados (Insomnia - Cadastrar Usuário)
+- get: .../usuario/:id => busca o usuário por id  
 ## API Restful hospedada Heroku 
 [desafio](https://desafio-backend2021.herokuapp.com).

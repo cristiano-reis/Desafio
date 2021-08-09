@@ -9,7 +9,7 @@ var sessaoMiddleware_1 = __importDefault(require("../middleware/sessaoMiddleware
 var usuarioRouter = express_1.Router();
 usuarioRouter.post('/', UsuarioController_1.default.cadastrarUsuario);
 usuarioRouter.use(sessaoMiddleware_1.default);
-usuarioRouter.get('/list', UsuarioController_1.default.listarID);
+usuarioRouter.get('/index', UsuarioController_1.default.index);
 usuarioRouter.get('/', UsuarioController_1.default.buscarUsuarios);
 usuarioRouter.get('/:id', UsuarioController_1.default.buscarContatoPorUsuario);
 exports.default = usuarioRouter;

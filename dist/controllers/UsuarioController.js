@@ -46,7 +46,7 @@ var UsuarioRepository_1 = __importDefault(require("../repository/UsuarioReposito
 var UsuarioController = /** @class */ (function () {
     function UsuarioController() {
     }
-    UsuarioController.prototype.listarID = function (request, response) {
+    UsuarioController.prototype.index = function (request, response) {
         return response.json({ userID: request.userID });
     };
     UsuarioController.prototype.buscarContatoPorUsuario = function (request, response) {

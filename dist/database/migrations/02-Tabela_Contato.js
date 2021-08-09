@@ -74,7 +74,7 @@ var TabelaContato1627953404493 = /** @class */ (function () {
                                     columnNames: ['usuario_id'],
                                     referencedColumnNames: ['id'],
                                     referencedTableName: 'usuarios',
-                                    onDelete: 'SET NULL',
+                                    onDelete: 'CASCADE',
                                     onUpdate: 'CASCADE',
                                 },
                             ],

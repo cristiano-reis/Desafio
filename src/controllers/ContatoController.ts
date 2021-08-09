@@ -25,7 +25,7 @@ class UsuarioController {
 
     if (existeNumero) {
       return response.status(409).json({
-        mensagem: 'Número já cadastrado',
+        mensagem: 'Número telefone já cadastrado',
       });
     }
     const contato = getRepository(Contato).create({

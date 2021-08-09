@@ -79,7 +79,7 @@ var UsuarioController = /** @class */ (function () {
                         existeNumero = _b.sent();
                         if (existeNumero) {
                             return [2 /*return*/, response.status(409).json({
-                                    mensagem: 'Número já cadastrado',
+                                    mensagem: 'Número telefone já cadastrado',
                                 })];
                         }
                         contato = typeorm_1.getRepository(Contato_1.default).create({

@@ -6,7 +6,7 @@ import Usuario from '../models/Usuario';
 import UsuarioRepository from '../repository/UsuarioRepository';
 
 class UsuarioController {
-  listarID(request: Request, response:Response) {
+  index(request: Request, response:Response) {
     return response.json({ userID: request.userID });
   }
 
