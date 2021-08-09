@@ -3,13 +3,9 @@ Aplicativo backend criado em Node.js com typescript uma APT RESTful de criação
 ## Instalação :
 
 - Configure o banco de dados em docker
-1. Criando a imagem
+Criando a imagem
 ```
-sudo docker run --name postgres -e POSTGRES_PASSWORD=docker -d postgres -p 5432:5432
-```
-2. Iniciando docker
-```
-sudo docker start <container id>
+sudo docker container run --name postgres -e POSTGRES_PASSWORD=docker -d postgres -p 5432:5432
 ```
 - Clone o repositório
 ```
