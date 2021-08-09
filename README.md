@@ -16,6 +16,11 @@ git clone https://github.com/cristiano-reis/Desafio.git
 cd Desafio
 yarn install
 ```
+> **Obs!** criar o arquivo .env na raiz do projeto.
+```
+APP_SECRET = SUA_CHAVE
+DATABASE_URL = postgres://postgres:docker@localhost:5432/<nome_ do _banco>
+```
 - Criação das tabelas no bando de dados - Postgresql
 
 > **Obs!** na base local comentar a linha `ssl": {rejectUnauthorized: false },` no arquivo ormconfig.js , em caso de deploy descomentar.  
