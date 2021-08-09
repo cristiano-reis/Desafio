@@ -22,6 +22,10 @@ yarn install
 ```
 yarn typeorm migration:run
 ```
+## Hospedagem local
+```
+http://localhost:3333
+```
 ## Uso do Insomnia
 - O arquivo de importação se encontra da pasta insomnia na raiz do projeto
 

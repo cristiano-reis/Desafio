@@ -32,7 +32,7 @@ export default class TabelaContato1627953404493 implements MigrationInterface {
           columnNames: ['usuario_id'],
           referencedColumnNames: ['id'],
           referencedTableName: 'usuarios',
-          onDelete: 'SET NULL',
+          onDelete: 'CASCADE',
           onUpdate: 'CASCADE',
         },
       ],
