@@ -39,7 +39,7 @@ class UsuarioController {
 
     if (usuarioExiste) {
       return response.status(409).json({
-        mensagem: 'Email já cadastrado!',
+        mensagem: 'E-mail já cadastrado!',
       });
     }
 

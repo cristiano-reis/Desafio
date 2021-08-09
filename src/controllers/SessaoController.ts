@@ -11,8 +11,8 @@ class SessaoController {
     const usuario = await getCustomRepository(UsuarioRepository).BuscarPorEmail(email);
 
     if (!usuario) {
-      return response.status(401).json({
-        mensagem: 'Usuário não encontrado!',
+      return response.status(404).json({
+        mensagem: 'Usuário e/ou senha inválidos',
       });
     }
 
@@ -20,7 +20,7 @@ class SessaoController {
 
     if (!SenhaValida) {
       return response.status(401).json({
-        mensagem: 'Senha Inválida!',
+        mensagem: 'Usuário e/ou senha inválidos!',
       });
     }
     delete usuario.senha;

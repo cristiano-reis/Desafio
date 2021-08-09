@@ -28,8 +28,8 @@ export default function sessaoMiddleware(
     return next();
   } catch (err) {
     if (err.message === 'invalid signature') {
-      return reponse.status(401).json({
-        messagem: 'Assinatura inválida',
+      return reponse.status(404).json({
+        messagem: 'Não Autorizado!',
       });
     }
 

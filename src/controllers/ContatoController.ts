@@ -16,8 +16,8 @@ class UsuarioController {
     const existeUsuario = await getCustomRepository(UsuarioRepository).BuscarPorId(id);
 
     if (!existeUsuario) {
-      return response.status(409).json({
-        mensagem: 'Usuario não encontrado!',
+      return response.status(404).json({
+        mensagem: 'Usuário inválido',
       });
     }
 
